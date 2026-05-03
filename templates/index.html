@@ -5,8 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Genin Volantes e Insulfilm</title>
 
-<meta name="description" content="Insulfilm, restauração de volante, faróis e estética automotiva em Maravilhas e região.">
-
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
@@ -16,40 +14,30 @@
 <!-- HERO -->
 <section class="hero">
     <div class="hero-content">
-
         <h1>Seu carro novo de novo 🚗✨</h1>
         <p>Insulfilm • Volantes • Estética Automotiva</p>
-        <p>📍 Papagaios, Maravilhas e região</p>
+        <p>📍 Papagaios e região</p>
 
-        <a href="https://wa.me/5537999785428?text=Olá,%20quero%20um%20orçamento" class="btn">
-            QUERO ORÇAMENTO AGORA 🔥
+        <a href="https://wa.me/5537999785428" class="btn">
+            QUERO ORÇAMENTO 🔥
         </a>
-
-        <p style="margin-top:15px; font-size:14px;">
-            ⭐ +200 carros transformados • Avaliação 4.9
-        </p>
-
     </div>
 </section>
 
-<!-- ANTES E DEPOIS -->
+<!-- SLIDER -->
 <section class="portfolio">
-    <h2>Olha a diferença 👇</h2>
+    <h2>Veja a transformação 👇</h2>
 
     <div class="portfolio-grid">
 
         {% for i in range(1,13) %}
-        <div class="portfolio-item">
+        <div class="slider">
 
-            <div class="img-wrapper">
-                <img src="{{ url_for('static', filename='foto_home/antes' ~ i ~ '.jpg') }}" class="img antes">
-                <img src="{{ url_for('static', filename='foto_home/depois' ~ i ~ '.jpg') }}" class="img depois">
-            </div>
+            <img src="{{ url_for('static', filename='foto_home/antes' ~ i ~ '.jpg') }}">
+            <img src="{{ url_for('static', filename='foto_home/depois' ~ i ~ '.jpg') }}" class="after">
 
-            <div class="labels">
-                <span>ANTES</span>
-                <span>DEPOIS</span>
-            </div>
+            <div class="line"></div>
+            <div class="handle">⇆</div>
 
         </div>
         {% endfor %}
@@ -57,99 +45,46 @@
     </div>
 </section>
 
-<!-- SERVIÇOS -->
-<section class="servicos">
-    <h2>Serviços</h2>
+<!-- WHATSAPP -->
+<a href="https://wa.me/5537999785428" class="zap">WhatsApp</a>
 
-    <div class="grid">
-        <div class="card">Insulfilm Profissional</div>
-        <div class="card">Restauração de Faróis</div>
-        <div class="card">Manutenção de Airbags</div>
-        <div class="card">Vitrificação de Pintura</div>
-    </div>
-</section>
+<script>
+document.querySelectorAll('.slider').forEach(slider => {
 
-<!-- DIFERENCIAL -->
-<section>
-    <h2>Por que escolher a gente?</h2>
+    const after = slider.querySelector('.after');
+    const line = slider.querySelector('.line');
+    const handle = slider.querySelector('.handle');
 
-    <div class="grid">
-        <div class="card">✔ Atendimento rápido</div>
-        <div class="card">✔ Acabamento profissional</div>
-        <div class="card">✔ Resultados comprovados</div>
-    </div>
-</section>
+    let drag = false;
 
-<!-- PROVA SOCIAL -->
-<section class="prova-social">
+    const move = (x) => {
+        const rect = slider.getBoundingClientRect();
+        let pos = x - rect.left;
 
-    <h2>Clientes satisfeitos em toda região</h2>
+        if (pos < 0) pos = 0;
+        if (pos > rect.width) pos = rect.width;
 
-    <div class="resumo">
-        <div class="box-resumo">
-            <h3>4.9 ⭐</h3>
-            <p>Avaliação média</p>
-        </div>
+        const percent = (pos / rect.width) * 100;
 
-        <div class="box-resumo">
-            <h3>+200</h3>
-            <p>Carros atendidos</p>
-        </div>
+        after.style.clipPath = `inset(0 ${100 - percent}% 0 0)`;
+        line.style.left = percent + "%";
+        handle.style.left = percent + "%";
+    };
 
-        <div class="box-resumo">
-            <h3>100%</h3>
-            <p>Clientes satisfeitos</p>
-        </div>
-    </div>
+    slider.addEventListener('mousedown', () => drag = true);
+    slider.addEventListener('mouseup', () => drag = false);
+    slider.addEventListener('mousemove', (e) => {
+        if (drag) move(e.clientX);
+    });
 
-    <div class="depo-grid">
+    slider.addEventListener('touchstart', () => drag = true);
+    slider.addEventListener('touchend', () => drag = false);
+    slider.addEventListener('touchmove', (e) => {
+        move(e.touches[0].clientX);
+    });
 
-        <div class="depo-card">
-            <p>"Meu volante ficou zero, trabalho impecável!"</p>
-            <span>⭐⭐⭐⭐⭐</span>
-            <h4>João • Divinópolis</h4>
-        </div>
-
-        <div class="depo-card">
-            <p>"Insulfilm perfeito, atendimento rápido!"</p>
-            <span>⭐⭐⭐⭐⭐</span>
-            <h4>Carlos • Pará de Minas</h4>
-        </div>
-
-        <div class="depo-card">
-            <p>"Parece outro carro, recomendo demais!"</p>
-            <span>⭐⭐⭐⭐⭐</span>
-            <h4>Marcos • Itaúna</h4>
-        </div>
-
-    </div>
-
-</section>
-
-<!-- CTA FINAL -->
-<section>
-    <h2>Pronto pra transformar seu carro?</h2>
-
-    <a href="https://wa.me/5537999785428?text=Olá,%20vim%20pelo%20site" class="btn">
-        Chamar no WhatsApp agora 🚀
-    </a>
-
-    <p style="margin-top:10px; font-size:13px;">
-        Resposta rápida ⚡ Atendimento imediato
-    </p>
-</section>
-
-<!-- CONTATO -->
-<section class="contato">
-    <h2>Contato</h2>
-    <p>📞 37 99978-5428</p>
-    <p>📞 37 99995-1724</p>
-</section>
-
-<!-- BOTÃO FLUTUANTE (GRANDE MOBILE) -->
-<a href="https://wa.me/5537999785428?text=Olá,%20vim%20pelo%20site" class="zap-fixo">
-    🚗 Falar no WhatsApp
-</a>
+});
+</script>
 
 </body>
 </html>
