@@ -1,0 +1,288 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #0f0f0f;
+    color: white;
+}
+
+/* HERO */
+.hero {
+    height: 90vh;
+    background: url("/static/foto_home/home.png") center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative; /* 🔥 CORREÇÃO */
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+}
+
+.hero-content {
+    background: rgba(0,0,0,0.0);
+    padding: 10px;
+    border-radius: 0px;
+    text-align: center;
+    position: relative; /* 🔥 CORREÇÃO */
+    z-index: 1; /* 🔥 CORREÇÃO */
+}
+
+.hero h1 {
+    font-size: 42px;
+    color: white; /* 🔥 CORREÇÃO */
+    text-shadow: 0 5px 20px rgba(0,0,0,0.8); /* 🔥 MELHORIA SUAVE */
+}
+
+.hero p {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+/* BOTÃO */
+.btn {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 14px 30px;
+    background: #25D366;
+    border-radius: 10px;
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
+
+/* SEÇÕES */
+section {
+    padding: 100px 20px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 30px;
+    margin-bottom: 40px;
+}
+
+/* SERVIÇOS */
+.grid {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: #1c1c1c;
+    padding: 30px;
+    border-radius: 15px;
+    width: 240px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    transition: 0.3s;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+/* PORTFÓLIO */
+.grid-img {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.item {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+
+.item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+/* CONTATO */
+.contato p {
+    margin: 5px;
+}
+
+/* WHATSAPP */
+.whatsapp {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25D366;
+    padding: 15px 20px;
+    border-radius: 50px;
+    color: white;
+    text-decoration: none;
+}
+
+/* RESPONSIVO */
+@media(max-width: 768px) {
+    .hero-content {
+        padding: 30px;
+    }
+
+    .hero h1 {
+        font-size: 28px;
+    }
+
+    .item {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* GRID */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* CARD */
+.portfolio-item {
+    background: #1a1a1a;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+    transition: 0.3s;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.portfolio-item:hover {
+    transform: translateY(-8px);
+}
+
+/* IMAGEM */
+.img-wrapper {
+    position: relative;
+    height: 250px;
+}
+
+.img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* DEPOIS SOBREPOSTO */
+.depois {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+/* HOVER */
+.portfolio-item:hover .depois {
+    opacity: 1;
+}
+
+/* LABELS */
+.labels {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 15px;
+    font-size: 12px;
+    color: #ccc;
+}
+
+.labels span {
+    background: #111;
+    padding: 5px 10px;
+    border-radius: 8px;
+}
+
+/* PROVA SOCIAL */
+.prova-social {
+    padding: 120px 20px;
+    text-align: center;
+}
+
+/* RESUMO */
+.resumo {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+}
+
+.box-resumo {
+    background: #1a1a1a;
+    padding: 30px;
+    border-radius: 15px;
+    width: 200px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+}
+
+.box-resumo h3 {
+    font-size: 28px;
+    color: #25D366;
+}
+
+.box-resumo p {
+    font-size: 13px;
+    color: #aaa;
+}
+
+/* DEPOIMENTOS */
+.depo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.depo-card {
+    background: #1a1a1a;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+    transition: 0.3s;
+}
+
+.depo-card:hover {
+    transform: translateY(-8px);
+}
+
+.depo-card p {
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.depo-card span {
+    color: gold;
+    font-size: 18px;
+}
+
+.depo-card h4 {
+    margin-top: 10px;
+    font-size: 13px;
+    color: #aaa;
+}
