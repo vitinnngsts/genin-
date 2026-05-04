@@ -3,67 +3,175 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Genin Volantes</title>
+<title>Genin Volantes - Seu carro novo de novo 🚗</title>
 
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
+<!-- Header -->
+<header class="header">
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-car"></i>
+                <span>Genin Volantes</span>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#portfolio" class="nav-link">Portfólio</a>
+                <a href="#contact" class="nav-link">Contato</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+</header>
 
 <!-- HERO -->
-<section class="hero">
+<section id="home" class="hero">
     <div class="overlay"></div>
 
     <div class="hero-content">
-        <h1>Seu carro novo de novo 🚗</h1>
-        <p>Estética automotiva profissional</p>
+        <div class="hero-badge">🏆 #1 em Minas Gerais</div>
+        <h1>Seu carro <span class="gradient-text">novo de novo</span> 🚗</h1>
+        <p class="hero-subtitle">Estética automotiva profissional com <strong>garantia total</strong></p>
 
-        <a href="https://wa.me/5537999785428" class="btn">
-            Falar no WhatsApp
-        </a>
-    </div>
-</section>
-
-<!-- ANTES/DEPOIS BONITO -->
-<section class="destaque">
-
-    <div class="card-destaque">
-        <img src="{{ url_for('static', filename='foto_home/depois1.jpg') }}">
-        <div class="tag">DEPOIS</div>
-    </div>
-
-    <div class="card-destaque">
-        <img src="{{ url_for('static', filename='foto_home/antes1.jpg') }}">
-        <div class="tag antes">ANTES</div>
-    </div>
-
-</section>
-
-<!-- GRID BONITO -->
-<section class="portfolio">
-
-    <h2>Transformações reais</h2>
-
-    <div class="grid">
-
-        {% for i in range(1,13) %}
-        <div class="card">
-            <img src="{{ url_for('static', filename='foto_home/depois' ~ i ~ '.jpg') }}">
+        <div class="hero-stats">
+            <div class="stat">
+                <span class="stat-number" data-target="500">0</span>
+                <span>+ carros</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number" data-target="98">0</span>
+                <span>% satisfação</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number" data-target="24">0</span>
+                <span>h entrega</span>
+            </div>
         </div>
-        {% endfor %}
 
+        <div class="hero-buttons">
+            <a href="https://wa.me/5537999785428" class="btn btn-primary">
+                <i class="fab fa-whatsapp"></i>
+                Falar no WhatsApp
+            </a>
+            <a href="#portfolio" class="btn btn-secondary">
+                <i class="fas fa-images"></i>
+                Ver Transformações
+            </a>
+        </div>
     </div>
+</section>
 
+<!-- ANTES E DEPOIS -->
+<section id="portfolio" class="portfolio">
+    <div class="container">
+        <div class="section-header">
+            <h2>Transformações <span class="gradient-text">reais</span> 👇</h2>
+            <p>+500 carros transformados em Minas Gerais</p>
+        </div>
+
+        <div class="grid">
+            {% for i in range(1,13) %}
+            <div class="card">
+                <div class="img-box">
+                    <img src="{{ url_for('static', filename='foto_home/antes' ~ i ~ '.jpg') }}" alt="Antes">
+                    <span class="tag antes">
+                        <i class="fas fa-arrow-left"></i> ANTES
+                    </span>
+                </div>
+
+                <div class="img-box">
+                    <img src="{{ url_for('static', filename='foto_home/depois' ~ i ~ '.jpg') }}" alt="Depois">
+                    <span class="tag depois">
+                        <i class="fas fa-arrow-right"></i> DEPOIS
+                    </span>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- PREÇOS -->
+<section class="pricing">
+    <div class="container">
+        <div class="section-header">
+            <h2>Nossos <span class="gradient-text">pacotes</span></h2>
+            <p>Escolha o melhor para o seu carro</p>
+        </div>
+
+        <div class="pricing-grid">
+            <div class="price-card">
+                <div class="price-header">
+                    <h3>Basic</h3>
+                    <div class="price">R$ 199</div>
+                </div>
+                <ul>
+                    <li><i class="fas fa-check"></i> Lavagem completa</li>
+                    <li><i class="fas fa-check"></i> Enceramento</li>
+                    <li><i class="fas fa-times"></i> Polimento</li>
+                </ul>
+                <a href="https://wa.me/5537999785428" class="btn btn-primary">Agendar</a>
+            </div>
+
+            <div class="price-card popular">
+                <div class="popular-badge">Mais Popular</div>
+                <div class="price-header">
+                    <h3>Premium</h3>
+                    <div class="price">R$ 399</div>
+                </div>
+                <ul>
+                    <li><i class="fas fa-check"></i> Tudo do Basic</li>
+                    <li><i class="fas fa-check"></i> Polimento profissional</li>
+                    <li><i class="fas fa-check"></i> Proteção UV</li>
+                </ul>
+                <a href="https://wa.me/5537999785428" class="btn btn-primary">Agendar Agora</a>
+            </div>
+
+            <div class="price-card">
+                <div class="price-header">
+                    <h3>VIP</h3>
+                    <div class="price">R$ 699</div>
+                </div>
+                <ul>
+                    <li><i class="fas fa-check"></i> Tudo do Premium</li>
+                    <li><i class="fas fa-check"></i> Detalhamento interno</li>
+                    <li><i class="fas fa-check"></i> Cerâmica</li>
+                </ul>
+                <a href="https://wa.me/5537999785428" class="btn btn-primary">Agendar</a>
+            </div>
+        </div>
+    </div>
 </section>
 
 <!-- CTA -->
 <section class="cta">
-    <h2>Quer deixar seu carro assim?</h2>
-    <a href="https://wa.me/5537999785428" class="btn">Chamar agora</a>
+    <div class="container">
+        <div class="cta-content">
+            <h2>Quer deixar seu carro <span class="gradient-text">brilhando</span> assim?</h2>
+            <p>Agende agora e receba 10% OFF na primeira visita!</p>
+            <a href="https://wa.me/5537999785428" class="btn btn-primary btn-large">
+                <i class="fab fa-whatsapp"></i>
+                Chamar no WhatsApp
+            </a>
+        </div>
+    </div>
 </section>
 
-<a href="https://wa.me/5537999785428" class="zap">WhatsApp</a>
+<!-- WHATS FLOATING -->
+<a href="https://wa.me/5537999785428" class="zap">
+    <i class="fab fa-whatsapp"></i>
+    <span>WhatsApp</span>
+</a>
 
+<script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
