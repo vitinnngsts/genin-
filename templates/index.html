@@ -24,7 +24,7 @@
     </div>
 </section>
 
-<!-- SLIDER -->
+<!-- PORTFOLIO -->
 <section class="portfolio">
     <h2>Veja a transformação 👇</h2>
 
@@ -34,7 +34,10 @@
         <div class="slider">
 
             <img src="{{ url_for('static', filename='foto_home/antes' ~ i ~ '.jpg') }}">
-            <img src="{{ url_for('static', filename='foto_home/depois' ~ i ~ '.jpg') }}" class="after">
+
+            <div class="after">
+                <img src="{{ url_for('static', filename='foto_home/depois' ~ i ~ '.jpg') }}">
+            </div>
 
             <div class="line"></div>
             <div class="handle">⇆</div>
@@ -45,7 +48,7 @@
     </div>
 </section>
 
-<!-- WHATSAPP -->
+<!-- BOTÃO -->
 <a href="https://wa.me/5537999785428" class="zap">WhatsApp</a>
 
 <script>
@@ -66,19 +69,22 @@ document.querySelectorAll('.slider').forEach(slider => {
 
         const percent = (pos / rect.width) * 100;
 
-        after.style.clipPath = `inset(0 ${100 - percent}% 0 0)`;
+        after.style.width = percent + "%";
         line.style.left = percent + "%";
         handle.style.left = percent + "%";
     };
 
     slider.addEventListener('mousedown', () => drag = true);
     slider.addEventListener('mouseup', () => drag = false);
+    slider.addEventListener('mouseleave', () => drag = false);
+
     slider.addEventListener('mousemove', (e) => {
         if (drag) move(e.clientX);
     });
 
     slider.addEventListener('touchstart', () => drag = true);
     slider.addEventListener('touchend', () => drag = false);
+
     slider.addEventListener('touchmove', (e) => {
         move(e.touches[0].clientX);
     });
