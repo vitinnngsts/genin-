@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Genin Volantes e Insulfilm</title>
+<title>Genin Volantes</title>
 
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
@@ -11,53 +11,59 @@
 
 <body>
 
-<!-- HERO COM ANTES E DEPOIS -->
+<!-- HERO -->
 <section class="hero">
-
-    <div class="hero-images">
-        <img src="{{ url_for('static', filename='foto_home/antes1.jpg') }}" class="antes">
-        <img src="{{ url_for('static', filename='foto_home/depois1.jpg') }}" class="depois">
-    </div>
+    <div class="overlay"></div>
 
     <div class="hero-content">
-        <h1>Seu carro novo de novo 🚗✨</h1>
-        <p>Insulfilm • Volantes • Estética Automotiva</p>
+        <h1>Seu carro novo de novo 🚗</h1>
+        <p>Estética automotiva profissional</p>
 
         <a href="https://wa.me/5537999785428" class="btn">
-            CHAMAR NO WHATSAPP 🔥
+            Falar no WhatsApp
         </a>
+    </div>
+</section>
+
+<!-- ANTES/DEPOIS BONITO -->
+<section class="destaque">
+
+    <div class="card-destaque">
+        <img src="{{ url_for('static', filename='foto_home/depois1.jpg') }}">
+        <div class="tag">DEPOIS</div>
+    </div>
+
+    <div class="card-destaque">
+        <img src="{{ url_for('static', filename='foto_home/antes1.jpg') }}">
+        <div class="tag antes">ANTES</div>
     </div>
 
 </section>
 
-<!-- GRID DE PROVAS -->
+<!-- GRID BONITO -->
 <section class="portfolio">
 
-    <h2>Transformações reais 👇</h2>
+    <h2>Transformações reais</h2>
 
     <div class="grid">
 
         {% for i in range(1,13) %}
-        <img src="{{ url_for('static', filename='foto_home/depois' ~ i ~ '.jpg') }}">
+        <div class="card">
+            <img src="{{ url_for('static', filename='foto_home/depois' ~ i ~ '.jpg') }}">
+        </div>
         {% endfor %}
 
     </div>
 
 </section>
 
-<!-- CTA FINAL -->
+<!-- CTA -->
 <section class="cta">
-    <h2>Quer deixar seu carro assim também?</h2>
-
-    <a href="https://wa.me/5537999785428" class="btn">
-        Pedir orçamento agora 🚀
-    </a>
+    <h2>Quer deixar seu carro assim?</h2>
+    <a href="https://wa.me/5537999785428" class="btn">Chamar agora</a>
 </section>
 
-<!-- WHATSAPP FIXO -->
-<a href="https://wa.me/5537999785428" class="zap">
-    WhatsApp
-</a>
+<a href="https://wa.me/5537999785428" class="zap">WhatsApp</a>
 
 </body>
 </html>
