@@ -11,86 +11,53 @@
 
 <body>
 
-<!-- HERO -->
+<!-- HERO COM ANTES E DEPOIS -->
 <section class="hero">
+
+    <div class="hero-images">
+        <img src="{{ url_for('static', filename='foto_home/antes1.jpg') }}" class="antes">
+        <img src="{{ url_for('static', filename='foto_home/depois1.jpg') }}" class="depois">
+    </div>
+
     <div class="hero-content">
         <h1>Seu carro novo de novo 🚗✨</h1>
         <p>Insulfilm • Volantes • Estética Automotiva</p>
-        <p>📍 Papagaios e região</p>
 
         <a href="https://wa.me/5537999785428" class="btn">
-            QUERO ORÇAMENTO 🔥
+            CHAMAR NO WHATSAPP 🔥
         </a>
     </div>
+
 </section>
 
-<!-- PORTFOLIO -->
+<!-- GRID DE PROVAS -->
 <section class="portfolio">
-    <h2>Veja a transformação 👇</h2>
 
-    <div class="portfolio-grid">
+    <h2>Transformações reais 👇</h2>
+
+    <div class="grid">
 
         {% for i in range(1,13) %}
-        <div class="slider">
-
-            <img src="{{ url_for('static', filename='foto_home/antes' ~ i ~ '.jpg') }}">
-
-            <div class="after">
-                <img src="{{ url_for('static', filename='foto_home/depois' ~ i ~ '.jpg') }}">
-            </div>
-
-            <div class="line"></div>
-            <div class="handle">⇆</div>
-
-        </div>
+        <img src="{{ url_for('static', filename='foto_home/depois' ~ i ~ '.jpg') }}">
         {% endfor %}
 
     </div>
+
 </section>
 
-<!-- BOTÃO -->
-<a href="https://wa.me/5537999785428" class="zap">WhatsApp</a>
+<!-- CTA FINAL -->
+<section class="cta">
+    <h2>Quer deixar seu carro assim também?</h2>
 
-<script>
-document.querySelectorAll('.slider').forEach(slider => {
+    <a href="https://wa.me/5537999785428" class="btn">
+        Pedir orçamento agora 🚀
+    </a>
+</section>
 
-    const after = slider.querySelector('.after');
-    const line = slider.querySelector('.line');
-    const handle = slider.querySelector('.handle');
-
-    let drag = false;
-
-    const move = (x) => {
-        const rect = slider.getBoundingClientRect();
-        let pos = x - rect.left;
-
-        if (pos < 0) pos = 0;
-        if (pos > rect.width) pos = rect.width;
-
-        const percent = (pos / rect.width) * 100;
-
-        after.style.width = percent + "%";
-        line.style.left = percent + "%";
-        handle.style.left = percent + "%";
-    };
-
-    slider.addEventListener('mousedown', () => drag = true);
-    slider.addEventListener('mouseup', () => drag = false);
-    slider.addEventListener('mouseleave', () => drag = false);
-
-    slider.addEventListener('mousemove', (e) => {
-        if (drag) move(e.clientX);
-    });
-
-    slider.addEventListener('touchstart', () => drag = true);
-    slider.addEventListener('touchend', () => drag = false);
-
-    slider.addEventListener('touchmove', (e) => {
-        move(e.touches[0].clientX);
-    });
-
-});
-</script>
+<!-- WHATSAPP FIXO -->
+<a href="https://wa.me/5537999785428" class="zap">
+    WhatsApp
+</a>
 
 </body>
 </html>

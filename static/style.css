@@ -12,93 +12,87 @@ body {
 
 /* HERO */
 .hero {
-    height: 90vh;
-    background: url("/static/foto_home/home.png") center/cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.hero-content {
-    background: rgba(0,0,0,0.6);
-    padding: 40px;
-    border-radius: 15px;
-    text-align: center;
-}
-
-.btn {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 15px 25px;
-    background: #25D366;
-    border-radius: 10px;
-    color: white;
-    text-decoration: none;
-}
-
-/* PORTFOLIO */
-.portfolio {
-    padding: 80px 20px;
-    text-align: center;
-}
-
-.portfolio-grid {
-    display: grid;
-    gap: 20px;
-    grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
-}
-
-/* SLIDER */
-.slider {
     position: relative;
-    height: 250px;
-    overflow: hidden;
-    border-radius: 10px;
+    height: 100vh;
 }
 
-.slider img {
+.hero-images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100%;
+}
+
+.hero-images img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-/* camada depois */
-.after {
+/* TEXTO SOBREPOSTO */
+.hero-content {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 50%;
-    height: 100%;
-    overflow: hidden;
+    bottom: 40px;
+    left: 20px;
+    right: 20px;
+
+    background: rgba(0,0,0,0.7);
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
 }
 
-.after img {
-    width: 100%;
-    height: 100%;
+.hero h1 {
+    font-size: 26px;
 }
 
-/* linha */
-.line {
-    position: absolute;
-    left: 50%;
-    width: 2px;
-    height: 100%;
-    background: white;
+.hero p {
+    margin-top: 10px;
+    font-size: 14px;
 }
 
-/* botão */
-.handle {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+/* BOTÃO */
+.btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 15px 25px;
     background: #25D366;
-    padding: 10px;
-    border-radius: 50%;
+    border-radius: 10px;
     color: white;
+    text-decoration: none;
+    font-weight: bold;
 }
 
-/* whatsapp */
+/* PORTFOLIO */
+.portfolio {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.portfolio h2 {
+    margin-bottom: 20px;
+}
+
+/* GRID */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 10px;
+}
+
+.grid img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* CTA */
+.cta {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+/* WHATSAPP */
 .zap {
     position: fixed;
     bottom: 15px;
@@ -108,12 +102,24 @@ body {
     border-radius: 30px;
     color: white;
     text-decoration: none;
+    font-size: 14px;
 }
 
-/* MOBILE */
-@media(max-width:768px){
-    .hero {
-        height: auto;
-        padding: 80px 20px;
+/* DESKTOP */
+@media(min-width: 768px) {
+
+    .hero-content {
+        max-width: 500px;
+        left: 50%;
+        transform: translateX(-50%);
     }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .grid {
+        grid-template-columns: repeat(4,1fr);
+    }
+
 }
