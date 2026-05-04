@@ -22,6 +22,7 @@
             <div class="nav-menu" id="nav-menu">
                 <a href="#home" class="nav-link">Home</a>
                 <a href="#portfolio" class="nav-link">Portfólio</a>
+                <a href="#pricing" class="nav-link">Preços</a>
                 <a href="#contact" class="nav-link">Contato</a>
             </div>
             <div class="hamburger" id="hamburger">
@@ -40,7 +41,7 @@
     <div class="hero-content">
         <div class="hero-badge">🏆 #1 em Minas Gerais</div>
         <h1>Seu carro <span class="gradient-text">novo de novo</span> 🚗</h1>
-        <p class="hero-subtitle">Estética automotiva profissional com <strong>garantia total</strong></p>
+        <p class="hero-subtitle">Estética automotiva profissional com <strong>garantia total</strong> • 24h entrega</p>
 
         <div class="hero-stats">
             <div class="stat">
@@ -70,38 +71,70 @@
     </div>
 </section>
 
-<!-- ANTES E DEPOIS -->
+<!-- ANTES E DEPOIS ÉPICO -->
 <section id="portfolio" class="portfolio">
     <div class="container">
         <div class="section-header">
-            <h2>Transformações <span class="gradient-text">reais</span> 👇</h2>
-            <p>+500 carros transformados em Minas Gerais</p>
+            <h2><span class="gradient-text">Antes ➜ Depois</span> Épico! 👇</h2>
+            <p>500+ carros transformados • Toque nas fotos pra virar!</p>
         </div>
 
         <div class="grid">
             {% for i in range(1,13) %}
-            <div class="card">
-                <div class="img-box">
-                    <img src="{{ url_for('static', filename='foto_home/antes' ~ i ~ '.jpg') }}" alt="Antes">
-                    <span class="tag antes">
-                        <i class="fas fa-arrow-left"></i> ANTES
-                    </span>
+            <div class="card" data-aos="zoom-in">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <!-- ANTES -->
+                        <div class="flip-card-front">
+                            <div class="img-box antes-mode">
+                                <img src="{{ url_for('static', filename='foto_home/antes' ~ i ~ '.jpg') }}" alt="Antes {{ i }}">
+                                <div class="tag antes">
+                                    <i class="fas fa-car-crash"></i>
+                                    <span>ANTES</span>
+                                </div>
+                                <div class="flip-hint">👆 Toque para Depois</div>
+                            </div>
+                        </div>
+
+                        <!-- DEPOIS -->
+                        <div class="flip-card-back">
+                            <div class="img-box depois-mode">
+                                <img src="{{ url_for('static', filename='foto_home/depois' ~ i ~ '.jpg') }}" alt="Depois {{ i }}">
+                                <div class="tag depois">
+                                    <i class="fas fa-car"></i>
+                                    <span>DEPOIS ✨</span>
+                                </div>
+                                <div class="flip-hint">👆 Toque para Antes</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="img-box">
-                    <img src="{{ url_for('static', filename='foto_home/depois' ~ i ~ '.jpg') }}" alt="Depois">
-                    <span class="tag depois">
-                        <i class="fas fa-arrow-right"></i> DEPOIS
-                    </span>
+                <div class="card-footer">
+                    <span>Carro #{{ i }}</span>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
                 </div>
             </div>
             {% endfor %}
+        </div>
+
+        <div class="load-more">
+            <button class="btn btn-secondary" onclick="scrollToTop()">
+                <i class="fas fa-arrow-up"></i>
+                Voltar ao topo
+            </button>
         </div>
     </div>
 </section>
 
 <!-- PREÇOS -->
-<section class="pricing">
+<section id="pricing" class="pricing">
     <div class="container">
         <div class="section-header">
             <h2>Nossos <span class="gradient-text">pacotes</span></h2>
@@ -152,24 +185,24 @@
     </div>
 </section>
 
-<!-- CTA -->
+<!-- CTA FINAL -->
 <section class="cta">
     <div class="container">
         <div class="cta-content">
             <h2>Quer deixar seu carro <span class="gradient-text">brilhando</span> assim?</h2>
-            <p>Agende agora e receba 10% OFF na primeira visita!</p>
+            <p>Agende agora e receba <strong>10% OFF</strong> na primeira visita! 🚀</p>
             <a href="https://wa.me/5537999785428" class="btn btn-primary btn-large">
                 <i class="fab fa-whatsapp"></i>
-                Chamar no WhatsApp
+                Chamar no WhatsApp AGORA
             </a>
         </div>
     </div>
 </section>
 
-<!-- WHATS FLOATING -->
+<!-- WHATS FLUTUANTE ÉPICO -->
 <a href="https://wa.me/5537999785428" class="zap">
     <i class="fab fa-whatsapp"></i>
-    <span>WhatsApp</span>
+    <span>Whats</span>
 </a>
 
 <script src="{{ url_for('static', filename='script.js') }}"></script>
