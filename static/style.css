@@ -1002,3 +1002,50 @@ body {
     }
     .hero-brand img { width: 65px; height: 65px; }
 }
+
+/* FLIP CARDS - OBRIGATÓRIO */
+.card {
+    perspective: 1000px;
+    height: 450px;
+    cursor: pointer;
+}
+
+.flip-card {
+    position: relative;
+    width: 100%;
+    height: 350px;
+    transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform-style: preserve-3d;
+}
+
+.card.flipped .flip-card {
+    transform: rotateY(180deg);
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+}
+
+.flip-card-front {
+    background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+}
+
+.flip-card-back {
+    background: linear-gradient(135deg, #4ecdc4, #44a08d);
+    transform: rotateY(180deg);
+}
