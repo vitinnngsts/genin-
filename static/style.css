@@ -1116,3 +1116,15 @@ body {
     position: relative;
     display: inline-block;
 }
+
+.hero-images-container {
+    display: flex;
+    flex-direction: column; /* Uma embaixo da outra */
+    gap: 30px; /* Espaço entre as imagens */
+    align-items: center; /* Centraliza as imagens */
+}
+
+.hero-image {
+    width: 100%;
+    max-width: 500px; /* Ajuste conforme necessário */
+}

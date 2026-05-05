@@ -70,24 +70,26 @@
                 </div>
             </div>
 
-            <!-- FOTO HOME.PNG FLUTUANTE ✨ -->
-            <div class="hero-image">
-                <div class="hero-car-image">
-                    <img src="{{ url_for('static', filename='foto_home/home.png') }}" alt="Genin Volantes - Transformação épica" />
-                    <div class="image-glow"></div>
-                    <div class="sparkles">✨ ✨ ✨</div>
-                </div>
-            </div>
+           <!-- CONTAINER PARA AS DUAS IMAGENS -->
+<div class="hero-images-container">
+    <!-- FOTO 1 -->
+    <div class="hero-image">
+        <div class="hero-car-image">
+            <img src="{{ url_for('static', filename='foto_home/home.png') }}" alt="Genin Volantes - Home" />
+            <div class="image-glow"></div>
+            <div class="sparkles">✨ ✨ ✨</div>
         </div>
+    </div>
 
-           <div class="hero-image">
-                <div class="hero-car-image">
-                    <img src="{{ url_for('static', filename='foto_home/volante.png') }}" alt="Genin Volantes - Transformação épica" />
-                    <div class="image-glow"></div>
-                    <div class="sparkles">✨ ✨ ✨</div>
-                </div>
-            </div>
+    <!-- FOTO 2 -->
+    <div class="hero-image">
+        <div class="hero-car-image">
+            <img src="{{ url_for('static', filename='foto_home/volante.png') }}" alt="Genin Volantes - Volante" />
+            <div class="image-glow"></div>
+            <div class="sparkles">✨ ✨ ✨</div>
         </div>
+    </div>
+</div>
     </section>
 
     <!-- ANTES E DEPOIS ÉPICO -->
