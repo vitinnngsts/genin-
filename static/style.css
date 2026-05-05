@@ -1105,3 +1105,14 @@ body {
 @media (max-width: 768px) {
     .hero-car-image { width: 350px; height: 280px; }
 }
+
+.hero-image {
+    display: block; /* Faz as imagens ficarem uma embaixo da outra */
+    margin-bottom: 20px; /* Espaço entre as imagens */
+    width: 100%;
+}
+
+.hero-car-image {
+    position: relative;
+    display: inline-block;
+}
