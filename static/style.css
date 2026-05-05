@@ -1049,3 +1049,59 @@ body {
     background: linear-gradient(135deg, #4ecdc4, #44a08d);
     transform: rotateY(180deg);
 }
+
+/* FOTO CARRO FLUTUANTE */
+.hero-car-image {
+    position: relative;
+    width: 500px;
+    height: 400px;
+    animation: carFloat 6s ease-in-out infinite;
+}
+
+.hero-car-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 25px;
+    box-shadow:
+        0 40px 100px rgba(0,0,0,0.5),
+        0 0 60px rgba(255, 215, 0, 0.6),
+        inset 0 2px 20px rgba(255,255,255,0.3);
+    border: 4px solid rgba(255, 215, 0, 0.8);
+}
+
+.image-glow {
+    position: absolute;
+    top: -30%;
+    left: -30%;
+    right: -30%;
+    bottom: -30%;
+    background: radial-gradient(circle, rgba(255,215,0,0.4) 0%, transparent 70%);
+    border-radius: 50%;
+    z-index: -1;
+    animation: glowPulse 3s ease-in-out infinite alternate;
+}
+
+.sparkles {
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    font-size: 2rem;
+    animation: sparkle 2s ease-in-out infinite;
+    color: #ffd700;
+    text-shadow: 0 0 20px #ffd700;
+}
+
+@keyframes carFloat {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-25px) rotate(2deg); }
+}
+
+@keyframes sparkle {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.3; transform: scale(1.5); }
+}
+
+@media (max-width: 768px) {
+    .hero-car-image { width: 350px; height: 280px; }
+}
